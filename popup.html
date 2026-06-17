@@ -27,44 +27,24 @@
     padding: 14px 10px !important;
   }
 
-  /* Animasi Geser Warna Pelangi */
-  @keyframes rainbowShift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-  }
+  @keyframes rainbowShift { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+  @keyframes blinky { 0% { filter: brightness(0.95); } 100% { filter: brightness(1.2); } }
 
-  /* Animasi Berkedip Halus */
-  @keyframes blinky {
-    0% { filter: brightness(0.95); }
-    100% { filter: brightness(1.2); }
-  }
-
-  /* Efek Mengkilap (Shine) */
   .btn-rainbow-glow::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -100%;
-    width: 50%;
-    height: 200%;
+    top: -50%; left: -100%;
+    width: 50%; height: 200%;
     background: rgba(255, 255, 255, 0.4);
     transform: rotate(30deg);
     animation: shineEffect 4s infinite;
   }
 
-  @keyframes shineEffect {
-    0% { left: -100%; }
-    20% { left: 100%; }
-    100% { left: 100%; }
-  }
-
-  .btn-rainbow-glow:hover {
-    transform: translateY(-2px);
-  }
+  @keyframes shineEffect { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+  .btn-rainbow-glow:hover { transform: translateY(-2px); }
 </style>
 
 <div class="modal-box">
-  
   <div class="modal-header">
     <div class="modal-title-area">
       <p>✨ Welcome to My World</p>
@@ -77,19 +57,7 @@
   </div>
 
   <div class="modal-action-buttons">
-    <button class="btn-thanks-top btn-rainbow-glow" id="closeBtnTop" onclick="sessionStorage.setItem('popupShowed', 'true');">👍 Okeh, Terima Kasih!</button>
-    
-    <button class="btn-maybe-bottom" id="closeBtnBottom" onclick="sessionStorage.setItem('popupShowed', 'true'); window.location.href='index2.html'">🚶‍♂️ Mungkin lain kali</button>
+    <button class="btn-thanks-top btn-rainbow-glow" id="closeBtnTop">👍 Okeh, Terima Kasih!</button>
+    <button class="btn-maybe-bottom" id="closeBtnBottom">🚶‍♂️ Mungkin lain kali</button>
   </div>
-
 </div>
-
-<script>
-  if (sessionStorage.getItem('popupShowed') === 'true') {
-    const overlay = document.getElementById('welcomeModal');
-    if (overlay) {
-      overlay.classList.remove('show');
-      overlay.style.display = 'none';
-    }
-  }
-</script>
